@@ -2670,7 +2670,7 @@ GameObject:
   - component: {fileID: 5159328085339301227}
   m_Layer: 0
   m_Name: Cylinder1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3794,7 +3794,7 @@ GameObject:
   - component: {fileID: 5159328085238575186}
   m_Layer: 0
   m_Name: Cylinder4
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5642,7 +5642,7 @@ GameObject:
   - component: {fileID: 4617074672836343647}
   m_Layer: 0
   m_Name: Arena
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6512,7 +6512,7 @@ GameObject:
   - component: {fileID: 5159328083764585829}
   m_Layer: 0
   m_Name: Cylinder3
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7128,7 +7128,7 @@ GameObject:
   - component: {fileID: 5159328084322356067}
   m_Layer: 0
   m_Name: Cylinder2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8491,7 +8491,7 @@ GameObject:
   - component: {fileID: 5159328084227723095}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8702,7 +8702,7 @@ GameObject:
   - component: {fileID: 5159328083880755035}
   m_Layer: 0
   m_Name: Cylinder5
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
