@@ -9,7 +9,7 @@ public class Ball : MonoBehaviour, IPowerUp
     private TrailRenderer trailRenderer;
     private LineRenderer lineRenderer;
     private ConfigurableJoint joint;
-    private float powerUpTime = 3.25f;
+    private float powerUpTime = 3f;
     private bool hasPowerUp;
 
     void Start()

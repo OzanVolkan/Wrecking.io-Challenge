@@ -8,7 +8,7 @@ public class InputController : MonoBehaviour, IDragHandler, IPointerUpHandler
 
     private Quaternion targetRotation; // Hedef dönme açýsý
     private float rotationSpeed = 5f; // Dönme hýzý
-    private float moveSpeed = 5f; // Ýleri hareket hýzý
+    private float moveSpeed = 7.5f; // Ýleri hareket hýzý
     private bool isDragging;
 
     private void Start()
