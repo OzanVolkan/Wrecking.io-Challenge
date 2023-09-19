@@ -172,6 +172,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3937410673685659740}
     m_Modifications:
+    - target: {fileID: -7880425203563356372, guid: 6b2e68853eeb7d0459450330c9ed0cc6,
+        type: 3}
+      propertyPath: m_Speed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: -7880425203563356372, guid: 6b2e68853eeb7d0459450330c9ed0cc6,
+        type: 3}
+      propertyPath: m_AutoBraking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7880425203563356372, guid: 6b2e68853eeb7d0459450330c9ed0cc6,
+        type: 3}
+      propertyPath: m_Acceleration
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -7880425203563356372, guid: 6b2e68853eeb7d0459450330c9ed0cc6,
+        type: 3}
+      propertyPath: m_AngularSpeed
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: -7880425203563356372, guid: 6b2e68853eeb7d0459450330c9ed0cc6,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -7880425203563356372, guid: 6b2e68853eeb7d0459450330c9ed0cc6,
+        type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7233957839045255339, guid: 6b2e68853eeb7d0459450330c9ed0cc6,
+        type: 3}
+      propertyPath: waypoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6158721110642088538, guid: 6b2e68853eeb7d0459450330c9ed0cc6,
         type: 3}
       propertyPath: m_RootOrder
@@ -257,6 +292,14 @@ PrefabInstance:
       propertyPath: m_ConnectedBody
       value: 
       objectReference: {fileID: 3937410672134120054}
+    - target: {fileID: 932278544, guid: 8d200ec2efb041f4eb12a16c644d12ce, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 932278546, guid: 8d200ec2efb041f4eb12a16c644d12ce, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     - target: {fileID: 7133488140180734750, guid: 8d200ec2efb041f4eb12a16c644d12ce,
         type: 3}
       propertyPath: m_RootOrder

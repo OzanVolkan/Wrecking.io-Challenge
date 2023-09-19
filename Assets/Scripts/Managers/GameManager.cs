@@ -5,7 +5,15 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public GameData gameData;
-    
+
+    [SerializeField] private Transform[] wayPoints;
+    public Transform[] WayPoint
+    {
+        get { return wayPoints; }
+        private set { wayPoints = value; }
+    }
+
+
     private void OnEnable()
     {
         
