@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
 public class InputController : MonoBehaviour, IDragHandler, IPointerUpHandler
 {
     [SerializeField] private Transform playerTransform;
@@ -31,6 +30,7 @@ public class InputController : MonoBehaviour, IDragHandler, IPointerUpHandler
         playerTransform.rotation = Quaternion.Lerp(playerTransform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
 
         playerTransform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+
     }
 
     public void OnDrag(PointerEventData eventData)

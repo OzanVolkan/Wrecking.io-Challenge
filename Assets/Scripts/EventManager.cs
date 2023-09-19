@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public enum GameEvent
 {
@@ -9,7 +11,7 @@ public enum GameEvent
 
     OnFail,
 
-    OnSave
+    OnSave,
 }
 public static class EventManager
 {
@@ -34,6 +36,7 @@ public static class EventManager
                 eventTable.Remove(gameEvent);
         }
     }
+
 
     public static void Broadcast(GameEvent gameEvent, params object[] args)
     {
