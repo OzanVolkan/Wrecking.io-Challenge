@@ -31,19 +31,18 @@ public class Ball : MonoBehaviour, IPowerUp
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag("GameController"))
+        if (collision.transform.CompareTag("PowerUp"))
         {
-            print("Game Cont");
+            StartCoroutine(PowerUp());
+            Destroy(collision.gameObject);
         }
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("PowerUp"))
         {
             StartCoroutine(PowerUp());
-            
-            print("Trigger");
+            Destroy(other.gameObject);
         }
     }
 
