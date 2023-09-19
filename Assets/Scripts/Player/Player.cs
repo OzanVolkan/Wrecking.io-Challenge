@@ -4,16 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    #region Properties
-    private bool hasPowerUp;
-    public bool HasPowerUp
-    {
-        get { return hasPowerUp; }
-        private set { hasPowerUp = value; }
-    }
-
-    #endregion
-
     [SerializeField] private Transform carLinePos;
 
     private Rigidbody rb;
@@ -32,11 +22,6 @@ public class Player : MonoBehaviour
     {
         SetLinePos();
     }
-
-   
-
-
-
     private void SetLinePos()
     {
         lineRenderer.SetPosition(0, carLinePos.position);

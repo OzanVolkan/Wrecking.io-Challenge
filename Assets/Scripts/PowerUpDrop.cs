@@ -8,7 +8,6 @@ public class PowerUpDrop : MonoBehaviour
     {
         if (collision.transform.CompareTag("Ground"))
         {
-            print("coll grou");
             GetComponent<Rigidbody>().isKinematic = true;
             GetComponent<Rigidbody>().useGravity = false;
             GetComponent<Collider>().isTrigger = true;
