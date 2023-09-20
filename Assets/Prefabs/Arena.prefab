@@ -598,7 +598,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &124162985
 Transform:
@@ -3159,7 +3159,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 0
   m_IsActive: 0
 --- !u!4 &809681197
 Transform:
@@ -7702,7 +7702,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 0
   m_IsActive: 0
 --- !u!4 &1641113542
 Transform:
@@ -9212,7 +9212,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 0
   m_IsActive: 0
 --- !u!4 &1934569476
 Transform:
@@ -9790,7 +9790,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 0
   m_IsActive: 0
 --- !u!4 &2119645110
 Transform:
@@ -12741,12 +12741,12 @@ GameObject:
   - component: {fileID: 1791057011632126847}
   - component: {fileID: 7053997956647742316}
   - component: {fileID: 5159328085339301227}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7950037202280161221
 Transform:
@@ -13909,12 +13909,12 @@ GameObject:
   - component: {fileID: 5429349327448186783}
   - component: {fileID: 966904117606653327}
   - component: {fileID: 5159328085238575186}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder4
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7804989415469269817
 Transform:
@@ -15810,6 +15810,7 @@ MonoBehaviour:
   - {fileID: 7270294439126267357}
   - {fileID: 6414995197262425387}
   - {fileID: 3630265198379436336}
+  - {fileID: 8542599328544506024}
   colorLayers:
   - {fileID: 124162983}
   - {fileID: 1641113544}
@@ -16658,12 +16659,12 @@ GameObject:
   - component: {fileID: 361497669241164308}
   - component: {fileID: 4119033478146537243}
   - component: {fileID: 5159328083764585829}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder3
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &9004187253858274180
 Transform:
@@ -17254,12 +17255,12 @@ GameObject:
   - component: {fileID: 6246739760777717325}
   - component: {fileID: 817266547362639341}
   - component: {fileID: 5159328084322356067}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder2
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5607331266135432440
 Transform:
@@ -18735,12 +18736,12 @@ GameObject:
   - component: {fileID: 1000344602908813553}
   - component: {fileID: 2623916554164643435}
   - component: {fileID: 5159328084227723095}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1991479460731718277
 Transform:
@@ -18916,12 +18917,12 @@ GameObject:
   - component: {fileID: 3992273949305551562}
   - component: {fileID: 4777986358985844505}
   - component: {fileID: 5159328083880755035}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder5
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6127539728197871302
 Transform:

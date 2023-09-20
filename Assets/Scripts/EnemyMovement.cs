@@ -3,35 +3,52 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour, IDrawLine
 {
-    public Transform[] waypoints; // Hedef noktalarý tutar.
+    [SerializeField] private Transform front, right, left;
+    [SerializeField] private Transform carLinePos;
 
-    private int currentWaypointIndex = 0;
-    private NavMeshAgent agent;
+    private LineRenderer lineRenderer;
+    private Transform ball;
+
+    private int groundLayer = 1 << 7;
+    private float hitRange = 10f;
+    private float moveSpeed = 10f;
 
     private void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        SetNextWaypoint();
+        lineRenderer = transform.parent.GetComponentInChildren<LineRenderer>();
+        ball = transform.parent.GetComponentInChildren<Ball>().transform;
     }
-
     private void Update()
     {
-        if (!agent.pathPending && agent.remainingDistance < 5f)
+        RaycastHit hit;
+
+        if (!Physics.Raycast(front.position, -transform.up, out hit, hitRange, groundLayer))
         {
-            //SetNextWaypoint();
+            float ranRot = Random.Range(180f, 290f);
+            transform.Rotate(Vector3.up, ranRot * Time.deltaTime);
         }
+        else if (!Physics.Raycast(right.position, -transform.up, out hit, hitRange, groundLayer))
+        {
+            float ranRot = Random.Range(180f, 290f);
+            transform.Rotate(Vector3.up, -ranRot * Time.deltaTime);
+        }
+        else if (!Physics.Raycast(left.position, -transform.up, out hit, hitRange, groundLayer))
+        {
+            float ranRot = Random.Range(180f, 290f);
+            transform.Rotate(Vector3.up, ranRot * Time.deltaTime);
+        }
+
+        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+
+        IDrawLine();
     }
 
-    private void SetNextWaypoint()
+    public void IDrawLine()
     {
-        if (waypoints.Length == 0) return;
-
-        Vector3 newTarget = new Vector3(waypoints[currentWaypointIndex].position.x, transform.position.y, waypoints[currentWaypointIndex].position.z);
-        agent.SetDestination(newTarget);
-
-        // Bir sonraki hedefe gitmek için indeksi artýr.
-        currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
+        lineRenderer.SetPosition(0, carLinePos.position);
+        lineRenderer.SetPosition(1, ball.position);
     }
+
 }

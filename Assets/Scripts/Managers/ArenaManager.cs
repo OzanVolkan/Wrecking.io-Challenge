@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Zenject;
+using UnityEngine.AI;
+
 public class ArenaManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] collapseLayers;
@@ -57,7 +60,7 @@ public class ArenaManager : MonoBehaviour
             }
         }
 
-        if (layerIndex > collapseLayers.Length)
+        if (layerIndex >= collapseLayers.Length)
             yield break;
 
         StartCoroutine(CollapseTheArena());
@@ -65,16 +68,15 @@ public class ArenaManager : MonoBehaviour
 
     private void SetNewLayers()
     {
-        visualLayers[layerIndex].SetActive(false);
+        Destroy(visualLayers[layerIndex]);
+
         collapseLayers[layerIndex].SetActive(true);
         layerIndex++;
 
-        if (layerIndex > collapseLayers.Length)
+
+        if (layerIndex >= collapseLayers.Length)
             return;
 
         colorLayers[layerIndex].gameObject.SetActive(true);
     }
-    //BAKEEEEEEEEEEEEEEEEEE!!!!!!!!
-
-
 }

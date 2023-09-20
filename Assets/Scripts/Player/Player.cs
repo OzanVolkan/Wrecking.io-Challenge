@@ -2,29 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDrawLine
 {
     [SerializeField] private Transform carLinePos;
 
-    private Rigidbody rb;
-    private TrailRenderer trailRenderer;
     private LineRenderer lineRenderer;
-    private ConfigurableJoint joint;
-    private GameObject ball;
+    private Transform ball;
 
     void Start()
     {
         lineRenderer = GetComponentInChildren<LineRenderer>();
-        ball = GetComponentInChildren<Ball>().gameObject;
+        ball = GetComponentInChildren<Ball>().transform;
     }
 
     void Update()
     {
-        SetLinePos();
+        IDrawLine();
     }
-    private void SetLinePos()
+
+    public void IDrawLine()
     {
         lineRenderer.SetPosition(0, carLinePos.position);
-        lineRenderer.SetPosition(1, ball.transform.position);
+        lineRenderer.SetPosition(1, ball.position);
     }
 }
