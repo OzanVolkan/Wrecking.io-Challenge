@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using TMPro;
 public class ParticleManager : MonoBehaviour
 {
     [SerializeField] private ParticleSystem winPrt;
     [SerializeField] private GameObject hitPrt;
     [SerializeField] private Sprite[] happyEmojis;
     [SerializeField] private Sprite[] sadEmojis;
+    [SerializeField] private string[] killTexts;
 
     private void OnEnable()
     {
@@ -48,10 +50,27 @@ public class ParticleManager : MonoBehaviour
 
         yield return new WaitForSeconds(2.75f);
 
-        if (_happyImg != null)
+        if (_happyImg != null || !_happyImg.Equals(null))
+        {
             _happyImg.SetActive(false);
+        }
 
-        if (_sadImg != null)
+        if (_sadImg != null || !_sadImg.Equals(null))
+        {
             _sadImg.SetActive(false);
+        }
+    }
+
+    public IEnumerator KillTextCheck(Transform playerCarTrans)
+    {
+        GameObject _text = playerCarTrans.GetComponentInChildren<Canvas>().transform.GetChild(2).gameObject;
+        _text.SetActive(true);
+
+        int rand = UnityEngine.Random.Range(0, killTexts.Length);
+        _text.GetComponent<TextMeshProUGUI>().text = killTexts[rand];
+
+        yield return new WaitForSeconds(2f);
+
+        _text?.SetActive(false);
     }
 }

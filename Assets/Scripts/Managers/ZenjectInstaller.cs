@@ -8,5 +8,7 @@ public class ZenjectInstaller : MonoInstaller
     {
         Container.Bind<InputController>().FromComponentInHierarchy().AsSingle();
         Container.Bind<GameManager>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<ParticleManager>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<PlayerCar>().FromComponentInHierarchy().AsSingle();
     }
 }

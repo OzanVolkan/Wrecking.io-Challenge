@@ -10,7 +10,7 @@ public sealed class PlayerBall : Ball
             bool _canMove = collision.transform.GetComponent<EnemyMovement>().CanMove;
             float jumpPower = Random.Range(3f, 5f);
 
-            OnCarHit(collision, _canMove,jumpPower);
+            OnCarHit(collision, _canMove, jumpPower);
             Vibration.VibratePeek();
         }
     }

@@ -325,6 +325,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 637af5168e32f3240a55622848cfe4b6, type: 3}
   - {fileID: 21300000, guid: 90cfde694c0b5b0478bf14595a1549b9, type: 3}
   - {fileID: 21300000, guid: db814a8ec11ce2347a93bf017de5e8e8, type: 3}
+  killTexts:
+  - SPECTACULAR!
+  - DROWNED!!!
+  - NAILED!
+  - HIT IT!!
 --- !u!4 &132539390 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7752527966394113373, guid: 1d6886f70d884d3459bf8fd702543062,
@@ -2267,11 +2272,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3584916949385052497, guid: 884eba6165ca43f4b912e838221707b2,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5059856043498063038, guid: 884eba6165ca43f4b912e838221707b2,
         type: 3}
       propertyPath: m_RootOrder

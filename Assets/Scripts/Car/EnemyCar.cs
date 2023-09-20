@@ -8,6 +8,14 @@ public sealed class EnemyCar : Car
     [Inject]
     GameManager gameManager;
 
+    [Inject]
+    ParticleManager particleManager;
+
+    [Inject]
+    PlayerCar playerCar;
+
+    private bool hitByPlayer;
+
     private void Start()
     {
         nameCanvas = GetCanvasTransform();
@@ -23,12 +31,24 @@ public sealed class EnemyCar : Car
         if (other.CompareTag("Water"))
         {
             gameManager.CurrentEnemies.Remove(transform.parent.gameObject);
-            Destroy(transform.root.gameObject, 1f);
+            Destroy(transform.root.gameObject, 2.1f);
 
-            //DROWNED HER VS!!
+            if(hitByPlayer)
+                StartCoroutine(particleManager.KillTextCheck(playerCar.transform));
 
             gameManager.CheckIfWin();
+        }
+    }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.CompareTag("PlayerBall"))
+        {
+            hitByPlayer = true;
+        }
+        if (collision.transform.CompareTag("EnemyBall"))
+        {
+            hitByPlayer = false;
         }
     }
 }
