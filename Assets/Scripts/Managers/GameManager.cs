@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
 {
     public GameData gameData;
 
+    [SerializeField] private GameObject powerUp;
+    [SerializeField] private Transform[] powerUpPoints;
+
     private bool isPlaying;
     public bool IsPlaying
     {
@@ -21,6 +24,8 @@ public class GameManager : MonoBehaviour
         private set { currentEnemies = value; }
     }
 
+    private float randomTime;
+
     private void Awake()
     {
         //OnLoad();
@@ -29,11 +34,18 @@ public class GameManager : MonoBehaviour
     {
         GameObject[] enemyObj = GameObject.FindGameObjectsWithTag("Enemy");
         currentEnemies.AddRange(enemyObj);
-
+        StartCoroutine(RandomPowerUp());
     }
-    private void Update()
+
+    private IEnumerator RandomPowerUp()
     {
-        
+        randomTime = UnityEngine.Random.Range(10f, 20f);
+        yield return new WaitForSeconds(randomTime);
+
+        int rand = UnityEngine.Random.Range(0, powerUpPoints.Length);
+        Instantiate(powerUp, powerUpPoints[rand].position, Quaternion.identity);
+
+        StartCoroutine(RandomPowerUp());
     }
 
     #region EVENTS
@@ -61,6 +73,7 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    #region Save/Load
     void OnSave()
     {
         _ = SaveManager.SaveData(gameData);
@@ -84,4 +97,6 @@ public class GameManager : MonoBehaviour
     {
         if (pause == true) OnSave();
     }
+
+    #endregion
 }
