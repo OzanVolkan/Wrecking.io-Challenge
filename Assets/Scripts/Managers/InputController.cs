@@ -15,6 +15,14 @@ public class InputController : MonoBehaviour, IDragHandler, IPointerUpHandler
     private float moveSpeed = 15f; // Ýleri hareket hýzý
     private bool isDragging;
 
+    private float rotationAmount;
+    public float RotationAmount
+    {
+        get { return rotationAmount; }
+        private set { rotationAmount = value; }
+    }
+
+
     private bool canMove;
     public bool CanMove
     {
@@ -36,7 +44,7 @@ public class InputController : MonoBehaviour, IDragHandler, IPointerUpHandler
 
         if (isDragging)
         {
-            float rotationAmount = Input.GetAxis("Mouse X") * rotationSpeed;
+            rotationAmount = Input.GetAxis("Mouse X") * rotationSpeed;
 
             targetRotation = Quaternion.Euler(targetRotation.eulerAngles.x,
                                           targetRotation.eulerAngles.y + rotationAmount,
