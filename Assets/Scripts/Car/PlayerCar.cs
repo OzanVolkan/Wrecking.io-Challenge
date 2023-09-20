@@ -32,6 +32,7 @@ public sealed class PlayerCar : Car
                 return;
 
             EventManager.Broadcast(GameEvent.OnFail);
+            fireEffect.SetActive(true);
         }
     }
 
