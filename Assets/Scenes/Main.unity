@@ -307,6 +307,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winPrt: {fileID: 1974462449}
   hitPrt: {fileID: 1190923159471817881, guid: 0a04e71ebc61dc64982910d9240b4f6d, type: 3}
+  happyEmojis:
+  - {fileID: 21300000, guid: a28599bfcb1c0d84d804b3cd94bfc1e7, type: 3}
+  - {fileID: 21300000, guid: ed8159d945994804c870dc75c9de0dd9, type: 3}
+  - {fileID: 21300000, guid: 4cd7dec68147db14eb5f0c40d6992131, type: 3}
+  - {fileID: 21300000, guid: 2424e51ab78485747837230432fbe15a, type: 3}
+  - {fileID: 21300000, guid: fd92a8af053b0954989d066db1d7433a, type: 3}
+  - {fileID: 21300000, guid: f1fe57338d50f934fb3a0e6ddc04e7f9, type: 3}
+  - {fileID: 21300000, guid: 3dc45d418d9a906449ea8dbf001db531, type: 3}
+  - {fileID: 21300000, guid: 42d53b5323db53a4ebc1f276f431efb4, type: 3}
+  sadEmojis:
+  - {fileID: 21300000, guid: df06af193ca0b44419a4f844a7bda7f0, type: 3}
+  - {fileID: 21300000, guid: c20aaf00c1dba584c897b0d132a128a7, type: 3}
+  - {fileID: 21300000, guid: d98182dbe2b98b44bafb912888b0dc87, type: 3}
+  - {fileID: 21300000, guid: 412fa14ce3dfdc14e85f6ebf9bce3d66, type: 3}
+  - {fileID: 21300000, guid: 3bbc18f4604fd6146b33b94599fbbf04, type: 3}
+  - {fileID: 21300000, guid: 637af5168e32f3240a55622848cfe4b6, type: 3}
+  - {fileID: 21300000, guid: 90cfde694c0b5b0478bf14595a1549b9, type: 3}
+  - {fileID: 21300000, guid: db814a8ec11ce2347a93bf017de5e8e8, type: 3}
 --- !u!4 &132539390 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7752527966394113373, guid: 1d6886f70d884d3459bf8fd702543062,
@@ -2249,6 +2267,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3584916949385052497, guid: 884eba6165ca43f4b912e838221707b2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5059856043498063038, guid: 884eba6165ca43f4b912e838221707b2,
         type: 3}
       propertyPath: m_RootOrder

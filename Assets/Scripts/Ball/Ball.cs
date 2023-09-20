@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+
 public abstract class Ball : MonoBehaviour, IPowerUp
 {
     private Rigidbody carRb;
@@ -74,7 +75,9 @@ public abstract class Ball : MonoBehaviour, IPowerUp
         Transform centerPoint = collision.transform;
         Vector3 randomPosition = centerPoint.position + new Vector3(Mathf.Cos(randomAngleRad), 0f, Mathf.Sin(randomAngleRad)) * Random.Range(20f, 25f);
 
-        EventManager.Broadcast(GameEvent.OnBallHit, centerPoint.position);
+        Transform happyTrans = transform.parent.GetChild(0);
+
+        EventManager.Broadcast(GameEvent.OnBallHit, centerPoint.position,happyTrans,centerPoint);
 
         float duration = Random.Range(2f, 3.25f);
         int numJumps = Random.Range(1, 3);

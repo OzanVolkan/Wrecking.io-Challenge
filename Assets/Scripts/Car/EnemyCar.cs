@@ -7,7 +7,16 @@ public sealed class EnemyCar : Car
 {
     [Inject]
     GameManager gameManager;
-    
+
+    private void Start()
+    {
+        nameCanvas = GetCanvasTransform();
+    }
+
+    private void Update()
+    {
+        SetCanvasRotation(nameCanvas);
+    }
     private void OnTriggerEnter(Collider other)
     {
 

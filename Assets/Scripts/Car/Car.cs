@@ -4,6 +4,8 @@ using UnityEngine;
 public abstract class Car : MonoBehaviour
 {
     private Ball ball;
+    protected Transform nameCanvas;
+
     private void Start()
     {
         ball = transform.parent.GetComponentInChildren<Ball>();
@@ -24,5 +26,15 @@ public abstract class Car : MonoBehaviour
             StartCoroutine(ball.PowerUp());
             Destroy(collision.gameObject);
         }
+    }
+
+    protected Transform GetCanvasTransform()
+    {
+        return transform.GetComponentInChildren<Canvas>().transform;
+    }
+
+    protected void SetCanvasRotation(Transform transform)
+    {
+        nameCanvas.rotation = Quaternion.LookRotation(nameCanvas.position - Camera.main.transform.position);
     }
 }

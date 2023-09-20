@@ -7,15 +7,14 @@ public sealed class PlayerCar : Car
     [Inject]
     GameManager gameManager;
 
-    private Transform nameCanvas;
     private void Start()
     {
-        nameCanvas = transform.GetChild(1);
+        nameCanvas = GetCanvasTransform();
     }
 
     private void Update()
     {
-        nameCanvas.rotation = Quaternion.LookRotation(nameCanvas.position - Camera.main.transform.position);
+        SetCanvasRotation(nameCanvas);
     }
     private void OnTriggerEnter(Collider other)
     {
