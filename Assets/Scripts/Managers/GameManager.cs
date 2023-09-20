@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(randomTime);
 
         int rand = UnityEngine.Random.Range(0, powerUpPoints.Length);
-        Instantiate(powerUp, powerUpPoints[rand].position, Quaternion.identity);
+        Instantiate(powerUp, powerUpPoints[rand].position, Quaternion.Euler(-90f,0f,0f));
 
         if (!isPlaying)
             yield break;

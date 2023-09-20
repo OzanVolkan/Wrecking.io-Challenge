@@ -9777,6 +9777,7 @@ GameObject:
   - component: {fileID: 1190923159471817883}
   - component: {fileID: 1190923159471817880}
   - component: {fileID: 7761465317375702756}
+  - component: {fileID: -4495485273779295826}
   m_Layer: 0
   m_Name: VFX_Hit_orange
   m_TagString: Untagged
@@ -14734,6 +14735,19 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!114 &-4495485273779295826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190923159471817881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd2e8874f60266498a388d7229a1bac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnlyDeactivate: 0
 --- !u!1 &1190923160046260713
 GameObject:
   m_ObjectHideFlags: 0

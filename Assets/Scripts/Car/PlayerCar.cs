@@ -17,6 +17,8 @@ public sealed class PlayerCar : Car
     private void Start()
     {
         nameCanvas = GetCanvasTransform();
+        ball = transform.parent.GetComponentInChildren<Ball>();
+
     }
 
     private void Update()
@@ -33,6 +35,21 @@ public sealed class PlayerCar : Car
 
             EventManager.Broadcast(GameEvent.OnFail);
             fireEffect.SetActive(true);
+        }
+
+        if (other.CompareTag("PowerUp"))
+        {
+            StartCoroutine(ball.PowerUp());
+            Destroy(other.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.CompareTag("PowerUp"))
+        {
+            StartCoroutine(ball.PowerUp());
+            Destroy(collision.gameObject);
         }
     }
 

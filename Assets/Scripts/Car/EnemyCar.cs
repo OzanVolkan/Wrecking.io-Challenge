@@ -19,6 +19,8 @@ public sealed class EnemyCar : Car
     private void Start()
     {
         nameCanvas = GetCanvasTransform();
+        ball = transform.parent.GetComponentInChildren<Ball>();
+
     }
 
     private void Update()
@@ -38,6 +40,12 @@ public sealed class EnemyCar : Car
 
             gameManager.CheckIfWin();
         }
+
+        if (other.CompareTag("PowerUp"))
+        {
+            StartCoroutine(ball.PowerUp());
+            Destroy(other.gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -49,6 +57,11 @@ public sealed class EnemyCar : Car
         if (collision.transform.CompareTag("EnemyBall"))
         {
             hitByPlayer = false;
+        }
+        if (collision.transform.CompareTag("PowerUp"))
+        {
+            StartCoroutine(ball.PowerUp());
+            Destroy(collision.gameObject);
         }
     }
 }
