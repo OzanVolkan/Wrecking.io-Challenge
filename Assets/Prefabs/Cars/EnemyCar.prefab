@@ -42,8 +42,8 @@ GameObject:
   - component: {fileID: 6158721110642088538}
   - component: {fileID: 6158721110642088537}
   - component: {fileID: 6158721110642088536}
-  - component: {fileID: 2218800602376599857}
   - component: {fileID: -7233957839045255339}
+  - component: {fileID: 7438458367646903572}
   m_Layer: 0
   m_Name: EnemyCar
   m_TagString: EnemyCar
@@ -99,18 +99,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &2218800602376599857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6158721110642088539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f0cc70a3bea0d24396c5ecee37cbfe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-7233957839045255339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +115,18 @@ MonoBehaviour:
   right: {fileID: 5500568744514736336}
   left: {fileID: 5474582743828281587}
   carLinePos: {fileID: 0}
+--- !u!114 &7438458367646903572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6158721110642088539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b9cc207fbf53f40b9b71d64741afd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6382787554865658417
 GameObject:
   m_ObjectHideFlags: 0

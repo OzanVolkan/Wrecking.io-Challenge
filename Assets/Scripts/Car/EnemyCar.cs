@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class EnemyCar : Car
+public sealed class EnemyCar : Car
 {
     [Inject]
     GameManager gameManager;

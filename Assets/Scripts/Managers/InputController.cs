@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Zenject;
 public class InputController : MonoBehaviour, IDragHandler, IPointerUpHandler
 {
+    [Inject]
+    GameManager gameManager;
+
     [SerializeField] private Transform playerTransform;
 
     private Quaternion targetRotation; // Hedef dönme açýsý
@@ -39,7 +43,7 @@ public class InputController : MonoBehaviour, IDragHandler, IPointerUpHandler
         playerTransform.rotation = Quaternion.Lerp(playerTransform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
 
 
-        if (!canMove)
+        if (!canMove || !gameManager.IsPlaying)
             return;
 
         playerTransform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);

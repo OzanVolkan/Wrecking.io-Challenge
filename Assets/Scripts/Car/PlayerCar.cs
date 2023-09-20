@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
-public class PlayerCar : Car
+public sealed class PlayerCar : Car
 {
     [Inject]
     GameManager gameManager;

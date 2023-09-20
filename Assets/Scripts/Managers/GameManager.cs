@@ -6,6 +6,14 @@ public class GameManager : MonoBehaviour
 {
     public GameData gameData;
 
+    private bool isPlaying;
+    public bool IsPlaying
+    {
+        get { return isPlaying; }
+        set { isPlaying = value; }
+    }
+
+
     [SerializeField] private List<GameObject> currentEnemies = new List<GameObject>();
     public List<GameObject> CurrentEnemies
     {
@@ -13,18 +21,6 @@ public class GameManager : MonoBehaviour
         private set { currentEnemies = value; }
     }
 
-
-    private void OnEnable()
-    {
-        
-        EventManager.AddHandler(GameEvent.OnSave, new Action(OnSave));
-    }
-
-    private void OnDisable()
-    {
-        
-        EventManager.RemoveHandler(GameEvent.OnSave, new Action(OnSave));
-    }
     private void Awake()
     {
         //OnLoad();
@@ -41,7 +37,27 @@ public class GameManager : MonoBehaviour
     }
 
     #region EVENTS
+    private void OnEnable()
+    {
+        EventManager.AddHandler(GameEvent.OnWin, new Action(OnWin));
+        EventManager.AddHandler(GameEvent.OnFail, new Action(OnFail));
+    }
 
+    private void OnDisable()
+    {
+        EventManager.RemoveHandler(GameEvent.OnWin, new Action(OnWin));
+        EventManager.RemoveHandler(GameEvent.OnFail, new Action(OnFail));
+    }
+
+    private void OnWin()
+    {
+        isPlaying = false;
+    }
+
+    private void OnFail()
+    {
+        isPlaying = false;
+    }
 
     #endregion
 
