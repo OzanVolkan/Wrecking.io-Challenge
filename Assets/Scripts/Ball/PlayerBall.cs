@@ -12,6 +12,7 @@ public sealed class PlayerBall : Ball
 
             OnCarHit(collision, _canMove, jumpPower);
             Vibration.VibratePeek();
+            EventManager.Broadcast(GameEvent.OnCameraShake, 2f, 0.5f);
         }
     }
 }

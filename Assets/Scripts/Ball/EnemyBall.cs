@@ -23,6 +23,7 @@ public sealed class EnemyBall : Ball
 
             OnCarHit(collision, _canMove, jumpPower);
             Vibration.VibratePop();
+            EventManager.Broadcast(GameEvent.OnCameraShake, 1f, 0.5f);
         }
     }
 }
