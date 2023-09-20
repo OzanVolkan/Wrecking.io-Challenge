@@ -8,11 +8,20 @@ public class InputController : MonoBehaviour, IDragHandler, IPointerUpHandler
 
     private Quaternion targetRotation; // Hedef dönme açýsý
     private float rotationSpeed = 5f; // Dönme hýzý
-    private float moveSpeed = 7.5f; // Ýleri hareket hýzý
+    private float moveSpeed = 15f; // Ýleri hareket hýzý
     private bool isDragging;
+
+    private bool canMove;
+    public bool CanMove
+    {
+        get { return canMove; }
+        set { canMove = value; }
+    }
+
 
     private void Start()
     {
+        canMove = true;
         targetRotation = playerTransform.rotation;
     }
 
@@ -29,8 +38,11 @@ public class InputController : MonoBehaviour, IDragHandler, IPointerUpHandler
 
         playerTransform.rotation = Quaternion.Lerp(playerTransform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
 
-        playerTransform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
 
+        if (!canMove)
+            return;
+
+        playerTransform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
 
     public void OnDrag(PointerEventData eventData)

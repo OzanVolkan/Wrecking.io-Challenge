@@ -5,6 +5,14 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour, IDrawLine
 {
+    private bool canMove;
+    public bool CanMove
+    {
+        get { return canMove; }
+        set { canMove = value; }
+    }
+
+
     [SerializeField] private Transform front, right, left;
     [SerializeField] private Transform carLinePos;
 
@@ -13,10 +21,11 @@ public class EnemyMovement : MonoBehaviour, IDrawLine
 
     private int groundLayer = 1 << 7;
     private float hitRange = 10f;
-    private float moveSpeed = 10f;
+    private float moveSpeed = 15f;
 
     private void Start()
     {
+        canMove = true;
         lineRenderer = transform.parent.GetComponentInChildren<LineRenderer>();
         ball = transform.parent.GetComponentInChildren<Ball>().transform;
     }
@@ -40,9 +49,13 @@ public class EnemyMovement : MonoBehaviour, IDrawLine
             transform.Rotate(Vector3.up, ranRot * Time.deltaTime);
         }
 
-        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
 
         IDrawLine();
+
+        if (!canMove)
+            return;
+
+        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
 
     public void IDrawLine()

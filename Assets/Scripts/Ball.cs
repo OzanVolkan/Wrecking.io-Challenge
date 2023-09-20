@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
+using Zenject;
 public class Ball : MonoBehaviour, IPowerUp
 {
+    [Inject]
+    InputController inputController;
+
     private Rigidbody carRb;
     private Rigidbody rb;
     private TrailRenderer trailRenderer;
@@ -36,6 +40,16 @@ public class Ball : MonoBehaviour, IPowerUp
             StartCoroutine(PowerUp());
             Destroy(collision.gameObject);
         }
+        if (collision.transform.CompareTag("EnemyCar"))
+        {
+            bool _canMove = collision.transform.GetComponent<EnemyMovement>().CanMove;
+            OnCarHit(collision, _canMove);
+        }
+        if (collision.transform.CompareTag("Car"))
+        {
+            bool _canMove = inputController.CanMove;
+            OnCarHit(collision, _canMove);
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -64,4 +78,23 @@ public class Ball : MonoBehaviour, IPowerUp
         joint.connectedBody = carRb;
     }
 
+    private void OnCarHit(Collision collision, bool canMove)
+    {
+        canMove = false;
+
+        float randomAngle = Random.Range(0f, 360f);
+        float randomAngleRad = randomAngle * Mathf.Deg2Rad;
+
+        Transform centerPoint = collision.transform;
+        Vector3 randomPosition = centerPoint.position + new Vector3(Mathf.Cos(randomAngleRad), 0f, Mathf.Sin(randomAngleRad)) * Random.Range(20f, 25f);
+
+        float jumpPower = Random.Range(3f, 5f);
+        float duration = Random.Range(2f, 3.25f);
+        int numJumps = Random.Range(1, 3);
+
+        centerPoint.DOJump(randomPosition, jumpPower, numJumps, 1f).OnComplete(() =>
+        {
+            canMove = true;
+        });
+    }
 }
