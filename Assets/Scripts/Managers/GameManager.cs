@@ -39,14 +39,14 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator RandomPowerUp()
     {
-        if (!isPlaying)
-            yield break;
-
         randomTime = UnityEngine.Random.Range(10f, 20f);
         yield return new WaitForSeconds(randomTime);
 
         int rand = UnityEngine.Random.Range(0, powerUpPoints.Length);
         Instantiate(powerUp, powerUpPoints[rand].position, Quaternion.identity);
+
+        if (!isPlaying)
+            yield break;
 
         StartCoroutine(RandomPowerUp());
     }

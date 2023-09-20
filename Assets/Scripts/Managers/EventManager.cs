@@ -13,7 +13,9 @@ public enum GameEvent
 
     OnSave,
 
-    OnGameStart
+    OnGameStart,
+
+    OnBallHit
 }
 public static class EventManager
 {
