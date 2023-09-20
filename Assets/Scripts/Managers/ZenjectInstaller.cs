@@ -7,5 +7,6 @@ public class ZenjectInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.Bind<InputController>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<GameManager>().FromComponentInHierarchy().AsSingle();
     }
 }

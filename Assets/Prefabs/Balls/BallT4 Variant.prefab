@@ -318,7 +318,7 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &419516680
+--- !u!114 &5196986892581458342
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -327,6 +327,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 368268038602825457}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a3e07741e3722d4dbc3c6e1378787ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 65a9e410686b2c5458a3cd993b9e8eb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

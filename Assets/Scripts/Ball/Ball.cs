@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using Zenject;
-public class Ball : MonoBehaviour, IPowerUp
+public abstract class Ball : MonoBehaviour, IPowerUp
 {
-    [Inject]
-    InputController inputController;
-
     private Rigidbody carRb;
     private Rigidbody rb;
     private TrailRenderer trailRenderer;
@@ -40,16 +36,6 @@ public class Ball : MonoBehaviour, IPowerUp
             StartCoroutine(PowerUp());
             Destroy(collision.gameObject);
         }
-        if (collision.transform.CompareTag("EnemyCar"))
-        {
-            bool _canMove = collision.transform.GetComponent<EnemyMovement>().CanMove;
-            OnCarHit(collision, _canMove);
-        }
-        if (collision.transform.CompareTag("Car"))
-        {
-            bool _canMove = inputController.CanMove;
-            OnCarHit(collision, _canMove);
-        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -78,7 +64,7 @@ public class Ball : MonoBehaviour, IPowerUp
         joint.connectedBody = carRb;
     }
 
-    private void OnCarHit(Collision collision, bool canMove)
+    protected void OnCarHit(Collision collision, bool canMove)
     {
         canMove = false;
 

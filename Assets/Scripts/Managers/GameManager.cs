@@ -6,11 +6,11 @@ public class GameManager : MonoBehaviour
 {
     public GameData gameData;
 
-    [SerializeField] private Transform[] wayPoints;
-    public Transform[] WayPoint
+    [SerializeField] private List<GameObject> currentEnemies = new List<GameObject>();
+    public List<GameObject> CurrentEnemies
     {
-        get { return wayPoints; }
-        private set { wayPoints = value; }
+        get { return currentEnemies; }
+        private set { currentEnemies = value; }
     }
 
 
@@ -31,7 +31,8 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-
+        GameObject[] enemyObj = GameObject.FindGameObjectsWithTag("Enemy");
+        currentEnemies.AddRange(enemyObj);
 
     }
     private void Update()

@@ -704,7 +704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameData: {fileID: 0}
-  wayPoints: []
+  currentEnemies: []
 --- !u!1001 &407147425
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -894,6 +894,32 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1 &459939004 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5607902158926861697, guid: 884eba6165ca43f4b912e838221707b2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5059856042687536779}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &459939007
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459939004}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &474877039 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7752527966394113373, guid: 1d6886f70d884d3459bf8fd702543062,
@@ -1376,10 +1402,6 @@ PrefabInstance:
     - target: {fileID: 100000, guid: f792fa89de1b28e43af5e66901f08fb8, type: 3}
       propertyPath: m_Name
       value: ToonWater - Water - Solid 800Tris
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: f792fa89de1b28e43af5e66901f08fb8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f792fa89de1b28e43af5e66901f08fb8, type: 3}
       propertyPath: m_RootOrder
