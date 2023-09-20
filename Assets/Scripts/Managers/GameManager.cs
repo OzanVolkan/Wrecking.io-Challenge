@@ -39,6 +39,9 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator RandomPowerUp()
     {
+        if (!isPlaying)
+            yield break;
+
         randomTime = UnityEngine.Random.Range(10f, 20f);
         yield return new WaitForSeconds(randomTime);
 
@@ -48,17 +51,27 @@ public class GameManager : MonoBehaviour
         StartCoroutine(RandomPowerUp());
     }
 
+    public void CheckIfWin()
+    {
+        if (currentEnemies.Count <= 0)
+        {
+            EventManager.Broadcast(GameEvent.OnWin);
+        }
+    }
+
     #region EVENTS
     private void OnEnable()
     {
         EventManager.AddHandler(GameEvent.OnWin, new Action(OnWin));
         EventManager.AddHandler(GameEvent.OnFail, new Action(OnFail));
+        EventManager.AddHandler(GameEvent.OnGameStart, new Action(OnGameStart));
     }
 
     private void OnDisable()
     {
         EventManager.RemoveHandler(GameEvent.OnWin, new Action(OnWin));
         EventManager.RemoveHandler(GameEvent.OnFail, new Action(OnFail));
+        EventManager.RemoveHandler(GameEvent.OnGameStart, new Action(OnGameStart));
     }
 
     private void OnWin()
@@ -69,6 +82,11 @@ public class GameManager : MonoBehaviour
     private void OnFail()
     {
         isPlaying = false;
+    }
+
+    private void OnGameStart()
+    {
+        isPlaying = true;
     }
 
     #endregion

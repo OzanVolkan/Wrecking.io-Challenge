@@ -64,7 +64,7 @@ public abstract class Ball : MonoBehaviour, IPowerUp
         joint.connectedBody = carRb;
     }
 
-    protected void OnCarHit(Collision collision, bool canMove)
+    protected void OnCarHit(Collision collision, bool canMove, float jumpPower)
     {
         canMove = false;
 
@@ -74,7 +74,6 @@ public abstract class Ball : MonoBehaviour, IPowerUp
         Transform centerPoint = collision.transform;
         Vector3 randomPosition = centerPoint.position + new Vector3(Mathf.Cos(randomAngleRad), 0f, Mathf.Sin(randomAngleRad)) * Random.Range(20f, 25f);
 
-        float jumpPower = Random.Range(3f, 5f);
         float duration = Random.Range(2f, 3.25f);
         int numJumps = Random.Range(1, 3);
 

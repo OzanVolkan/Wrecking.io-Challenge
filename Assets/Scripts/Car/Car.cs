@@ -4,7 +4,6 @@ using UnityEngine;
 public abstract class Car : MonoBehaviour
 {
     private Ball ball;
-
     private void Start()
     {
         ball = transform.parent.GetComponentInChildren<Ball>();
@@ -26,5 +25,4 @@ public abstract class Car : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
-
 }

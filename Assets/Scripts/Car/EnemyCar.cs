@@ -7,7 +7,7 @@ public sealed class EnemyCar : Car
 {
     [Inject]
     GameManager gameManager;
-
+    
     private void OnTriggerEnter(Collider other)
     {
 
@@ -16,9 +16,10 @@ public sealed class EnemyCar : Car
             gameManager.CurrentEnemies.Remove(transform.parent.gameObject);
             Destroy(transform.root.gameObject, 1f);
 
-            //Check if Win?
-
             //DROWNED HER VS!!
+
+            gameManager.CheckIfWin();
+
         }
     }
 }

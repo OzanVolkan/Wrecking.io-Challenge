@@ -31,6 +31,9 @@ public class InputController : MonoBehaviour, IDragHandler, IPointerUpHandler
 
     private void Update()
     {
+        if (!canMove || !gameManager.IsPlaying)
+            return;
+
         if (isDragging)
         {
             float rotationAmount = Input.GetAxis("Mouse X") * rotationSpeed;
@@ -41,10 +44,6 @@ public class InputController : MonoBehaviour, IDragHandler, IPointerUpHandler
         }
 
         playerTransform.rotation = Quaternion.Lerp(playerTransform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
-
-
-        if (!canMove || !gameManager.IsPlaying)
-            return;
 
         playerTransform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }

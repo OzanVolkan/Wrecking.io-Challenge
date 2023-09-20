@@ -26,17 +26,20 @@ public class UIManager : MonoBehaviour
 
     #region BUTTONS
 
-    //public void NextButton()
-    //{
-    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    //    EventManager.Broadcast(GameEvent.OnNext);
-    //    EventManager.Broadcast(GameEvent.OnSave);
-    //}
+    public void NextButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
-    //public void RefreshButton()
-    //{
-    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    //}
+    public void RefreshButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void StartButton()
+    {
+        EventManager.Broadcast(GameEvent.OnGameStart);
+    }
     #endregion
 
     #region EVENTS

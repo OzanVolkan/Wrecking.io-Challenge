@@ -237,6 +237,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyCar
       objectReference: {fileID: 0}
+    - target: {fileID: 7067414437837778670, guid: 6b2e68853eeb7d0459450330c9ed0cc6,
+        type: 3}
+      propertyPath: m_text
+      value: Biden_
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067414437837778670, guid: 6b2e68853eeb7d0459450330c9ed0cc6,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392267404745944354, guid: 6b2e68853eeb7d0459450330c9ed0cc6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b99e47868db7eba43b3dad1d093b4bd5,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b2e68853eeb7d0459450330c9ed0cc6, type: 3}
 --- !u!54 &2052965437575374564 stripped

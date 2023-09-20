@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using Zenject;
 public class EnemyMovement : MonoBehaviour, IDrawLine
 {
+    [Inject]
+    GameManager gameManager;
+
     private bool canMove;
     public bool CanMove
     {
@@ -31,6 +34,12 @@ public class EnemyMovement : MonoBehaviour, IDrawLine
     }
     private void Update()
     {
+        IDrawLine();
+
+        if (!canMove || !gameManager.IsPlaying)
+            return;
+
+
         RaycastHit hit;
 
         if (!Physics.Raycast(front.position, -transform.up, out hit, hitRange, groundLayer))
@@ -48,13 +57,7 @@ public class EnemyMovement : MonoBehaviour, IDrawLine
             float ranRot = Random.Range(180f, 290f);
             transform.Rotate(Vector3.up, ranRot * Time.deltaTime);
         }
-
-
-        IDrawLine();
-
-        if (!canMove)
-            return;
-
+        
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
 

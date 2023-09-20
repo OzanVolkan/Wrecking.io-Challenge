@@ -8,7 +8,9 @@ public sealed class PlayerBall : Ball
         if (collision.transform.CompareTag("EnemyCar"))
         {
             bool _canMove = collision.transform.GetComponent<EnemyMovement>().CanMove;
-            OnCarHit(collision, _canMove);
+            float jumpPower = Random.Range(3f, 5f);
+
+            OnCarHit(collision, _canMove,jumpPower);
             Vibration.VibratePeek();
         }
     }
