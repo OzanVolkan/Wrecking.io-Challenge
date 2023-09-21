@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
 
         if (upgradeButton.IsActive())
         {
-            if (DataManager.Instance.GameData.UpgradeAmount >= 10)
+            if (DataManager.Instance.GameData.Speed >= 10)
             {
                 speedLevel.text = "MAX LEVEL";
                 upgradeButton.interactable = false;
@@ -74,10 +74,12 @@ public class UIManager : MonoBehaviour
         if (DataManager.Instance.GameData.Money < DataManager.Instance.GameData.UpgradeAmount)
             return;
 
+        Vibration.Vibrate(30);
         DataManager.Instance.GameData.Money -= DataManager.Instance.GameData.UpgradeAmount;
         DataManager.Instance.GameData.UpgradeAmount += 50;
         DataManager.Instance.GameData.Speed++;
         OnMoneyChanged();
+        EventManager.Broadcast(GameEvent.OnSave);
     }
 
     #endregion

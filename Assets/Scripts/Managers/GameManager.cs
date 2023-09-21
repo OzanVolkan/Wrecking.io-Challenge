@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        //OnLoad();
+        OnLoad();
     }
     private void Start()
     {
@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
         EventManager.AddHandler(GameEvent.OnWin, new Action(OnWin));
         EventManager.AddHandler(GameEvent.OnFail, new Action(OnFail));
         EventManager.AddHandler(GameEvent.OnGameStart, new Action(OnGameStart));
+        EventManager.AddHandler(GameEvent.OnSave, new Action(OnSave));
     }
 
     private void OnDisable()
@@ -72,16 +73,19 @@ public class GameManager : MonoBehaviour
         EventManager.RemoveHandler(GameEvent.OnWin, new Action(OnWin));
         EventManager.RemoveHandler(GameEvent.OnFail, new Action(OnFail));
         EventManager.RemoveHandler(GameEvent.OnGameStart, new Action(OnGameStart));
+        EventManager.RemoveHandler(GameEvent.OnSave, new Action(OnSave));
     }
 
     private void OnWin()
     {
         isPlaying = false;
+        OnSave();
     }
 
     private void OnFail()
     {
         isPlaying = false;
+        OnSave();
     }
 
     private void OnGameStart()
