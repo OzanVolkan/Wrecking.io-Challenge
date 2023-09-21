@@ -35,8 +35,12 @@ public sealed class EnemyCar : Car
             gameManager.CurrentEnemies.Remove(transform.parent.gameObject);
             Destroy(transform.root.gameObject, 2.1f);
 
-            if(hitByPlayer)
+            if (hitByPlayer) 
+            {
                 StartCoroutine(particleManager.KillTextCheck(playerCar.transform));
+                DataManager.Instance.GameData.Money += 25;
+                EventManager.Broadcast(GameEvent.OnMoneyChanged);
+            }
 
             gameManager.CheckIfWin();
         }

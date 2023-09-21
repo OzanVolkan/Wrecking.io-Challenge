@@ -1,27 +1,55 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 public class UIManager : MonoBehaviour
 {
-    //public TextMeshProUGUI levelCounter;
+    [SerializeField] private Button upgradeButton;
 
-    [SerializeField] GameObject winPanel;
-    [SerializeField] GameObject failPanel;
-    //[SerializeField] GameObject buttonsPanel;
-    //[SerializeField] GameObject greenBut, blueBut, redBut, hand;
+    [Header("Panels")]
+    [SerializeField] private GameObject winPanel;
+    [SerializeField] private GameObject failPanel;
+    [SerializeField] private GameObject moneyImg;
+
+    [Header("Texts")]
+    [SerializeField] private TextMeshProUGUI moneyAmount;
+    [SerializeField] private TextMeshProUGUI speedLevel;
+    [SerializeField] private TextMeshProUGUI upgradeAmount;
+
 
     private void Start()
     {
-        //InvokeRepeating("UIChecker", 0f, 0.1f);
+        InvokeRepeating("UIChecker", 0.1f, 0.1f);
     }
 
     private void UIChecker()
     {
-        //levelCounter.text = "Level " + GameManager.Instance.gameData.levelCounter;
+        if (speedLevel.IsActive())
+            speedLevel.text = "LEVEL " + DataManager.Instance.GameData.Speed;
+
+        if (moneyAmount.IsActive())
+            moneyAmount.text = DataManager.Instance.GameData.Money.ToString();
+
+        if (upgradeAmount.IsActive())
+            upgradeAmount.text = DataManager.Instance.GameData.UpgradeAmount.ToString();
+
+        if (upgradeButton.IsActive())
+        {
+            if (DataManager.Instance.GameData.UpgradeAmount >= 10)
+            {
+                speedLevel.text = "MAX LEVEL";
+                upgradeButton.interactable = false;
+                return;
+            }
+
+            if (DataManager.Instance.GameData.Money < DataManager.Instance.GameData.UpgradeAmount)
+                upgradeButton.interactable = false;
+
+            else
+                upgradeButton.interactable = true;
+        }
     }
 
     #region BUTTONS
@@ -40,6 +68,18 @@ public class UIManager : MonoBehaviour
     {
         EventManager.Broadcast(GameEvent.OnGameStart);
     }
+
+    public void SpeedUpgrade()
+    {
+        if (DataManager.Instance.GameData.Money < DataManager.Instance.GameData.UpgradeAmount)
+            return;
+
+        DataManager.Instance.GameData.Money -= DataManager.Instance.GameData.UpgradeAmount;
+        DataManager.Instance.GameData.UpgradeAmount += 50;
+        DataManager.Instance.GameData.Speed++;
+        OnMoneyChanged();
+    }
+
     #endregion
 
     #region EVENTS
@@ -47,12 +87,14 @@ public class UIManager : MonoBehaviour
     {
         EventManager.AddHandler(GameEvent.OnWin, new Action(OnWin));
         EventManager.AddHandler(GameEvent.OnFail, new Action(OnFail));
+        EventManager.AddHandler(GameEvent.OnMoneyChanged, new Action(OnMoneyChanged));
     }
 
     private void OnDisable()
     {
         EventManager.RemoveHandler(GameEvent.OnWin, new Action(OnWin));
         EventManager.RemoveHandler(GameEvent.OnFail, new Action(OnFail));
+        EventManager.RemoveHandler(GameEvent.OnMoneyChanged, new Action(OnMoneyChanged));
     }
 
     private void OnWin()
@@ -63,6 +105,20 @@ public class UIManager : MonoBehaviour
     private void OnFail()
     {
         failPanel.SetActive(true);
+    }
+
+    private void OnMoneyChanged()
+    {
+        if (upgradeButton.IsActive())
+            upgradeButton.interactable = false;
+
+        moneyImg.transform.DOPunchScale(moneyImg.transform.localScale * 1.1f, 0.5f).OnComplete(() =>
+        {
+            if (upgradeButton.IsActive())
+                upgradeButton.interactable = true;
+        });
+
+
     }
 
     #endregion

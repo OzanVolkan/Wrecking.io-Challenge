@@ -53,7 +53,8 @@ public class InputController : MonoBehaviour, IDragHandler, IPointerUpHandler
 
         playerTransform.rotation = Quaternion.Lerp(playerTransform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
 
-        playerTransform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+        playerTransform.Translate(Vector3.forward * (moveSpeed + (DataManager.Instance.GameData.Speed / 10))
+            * Time.deltaTime);
     }
 
     public void OnDrag(PointerEventData eventData)

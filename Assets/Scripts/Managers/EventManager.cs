@@ -17,7 +17,9 @@ public enum GameEvent
 
     OnBallHit,
 
-    OnCameraShake
+    OnCameraShake,
+
+    OnMoneyChanged
 }
 public static class EventManager
 {
